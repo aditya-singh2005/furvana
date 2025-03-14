@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from './Navbar'
 import SplineScene from './SplineScene'
-import CoverflowEffect from './CoverFlowEffect'
 
 
 const LandingPage = () => {
