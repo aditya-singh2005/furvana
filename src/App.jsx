@@ -5,19 +5,6 @@ import AdoptPage from "./components/AdoptPage";
 
 function App() {
 
-  useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const res = await fetch("http://localhost:3000");
-          const data = await res.json();
-          console.log(data);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        }
-      };
-      fetchData();
-    }, []);
-
   return (
     <Router>
       <Routes>
