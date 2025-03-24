@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import Masonry from './Masonry';
-import dogData from '../Data/dogData';
 import SearchFilterForm from './SearchFilterForm';
 
 const AdoptPage = () => {
+  const [pets, setPets] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/pets') // Updated API endpoint
+      .then(res => res.json())
+      .then(data => setPets(data))
+      .catch(err => console.log(err));
+  }, []);
+
   return (
     <div className='flex flex-col min-h-screen'>
       <Navbar />
@@ -19,7 +27,7 @@ const AdoptPage = () => {
               <SearchFilterForm />
             </div>
             <div className='adopt-dog-display bg-[#E6CCB2] w-4/5 h-full p-2 overflow-auto'>
-              <Masonry data={dogData} />
+              <Masonry data={pets} />
             </div>
           </div>
         </div>
