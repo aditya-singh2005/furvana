@@ -6,10 +6,8 @@ const GridMotion = ({ items = [], gradientColor = 'black' }) => {
   const rowRefs = useRef([]);
   const mouseXRef = useRef(window.innerWidth / 2);
 
-  // Ensure 28 items (4 rows x 7 columns)
-  const totalItems = 28;
-  const defaultItems = Array.from({ length: totalItems }, (_, index) => `Item ${index + 1}`);
-  const combinedItems = items.length > 0 ? items.slice(0, totalItems) : defaultItems;
+  // Ensure only images are used
+  const filteredItems = items.filter((item) => typeof item === 'string' && item.startsWith('http'));
 
   useEffect(() => {
     gsap.ticker.lagSmoothing(0);
@@ -19,7 +17,7 @@ const GridMotion = ({ items = [], gradientColor = 'black' }) => {
     };
 
     const updateMotion = () => {
-      const maxMoveAmount = 200;
+      const maxMoveAmount = 300;
       const baseDuration = 0.8;
       const inertiaFactors = [0.6, 0.4, 0.3, 0.2];
 
@@ -55,8 +53,9 @@ const GridMotion = ({ items = [], gradientColor = 'black' }) => {
           background: `radial-gradient(circle, ${gradientColor} 0%, transparent 100%)`,
         }}
       >
-        {/* Grid */}
-        <div className="gap-4 flex-none relative w-[150vw] h-[150vh] grid grid-rows-4 grid-cols-1 rotate-[-15deg] origin-center z-[2]">
+        <div
+          className="gap-4 flex-none relative w-[150vw] h-[150vh] grid grid-rows-4 grid-cols-1 rotate-[-15deg] origin-center z-[2]"
+        >
           {[...Array(4)].map((_, rowIndex) => (
             <div
               key={rowIndex}
@@ -64,25 +63,16 @@ const GridMotion = ({ items = [], gradientColor = 'black' }) => {
               style={{ willChange: 'transform, filter' }}
               ref={(el) => (rowRefs.current[rowIndex] = el)}
             >
-              {[...Array(7)].map((_, itemIndex) => {
-                const content = combinedItems[rowIndex * 7 + itemIndex];
-                return (
-                  <div key={itemIndex} className="relative">
+              {filteredItems.slice(rowIndex * 7, (rowIndex + 1) * 7).map((url, itemIndex) => (
+                <div key={itemIndex} className="relative">
+                  <div className="relative w-full h-full overflow-hidden rounded-[10px] bg-[#111]">
                     <div
-                      className="relative w-full h-full overflow-hidden rounded-[10px] bg-[#222] flex items-center justify-center text-white text-[1.5rem]"
-                    >
-                      {typeof content === 'string' && content.startsWith('http') ? (
-                        <div
-                          className="w-full h-full bg-cover bg-center absolute top-0 left-0"
-                          style={{ backgroundImage: `url(${content})` }}
-                        ></div>
-                      ) : (
-                        <div className="p-4 text-center z-[1]">{content}</div>
-                      )}
-                    </div>
+                      className="w-full h-full bg-cover bg-center absolute top-0 left-0"
+                      style={{ backgroundImage: `url(${url})` }}
+                    ></div>
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </div>
           ))}
         </div>
