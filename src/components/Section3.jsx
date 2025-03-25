@@ -20,8 +20,8 @@ const items = [
 
 const Section3 = () => {
   return (
-    <div>
-        <div className='h-screen w-1/2'>
+    <div className='h-screen'>
+        <div className='h-3/4 bg-black text-white w-1/2'>
         <InfiniteScroll
             items={items}
             isTilted={true}
