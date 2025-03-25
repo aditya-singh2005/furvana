@@ -3,22 +3,19 @@ import InfiniteScroll from './InfiniteScroll';
 
 
 const items = [
-  { content: "Text Item 1" },
-  { content: <p>Paragraph Item 2</p> },
-  { content: "Text Item 3" },
-  { content: <p>Paragraph Item 4</p> },
-  { content: "Text Item 5" },
-  { content: <p>Paragraph Item 6</p> },
-  { content: "Text Item 7" },
-  { content: <p>Paragraph Item 8</p> },
-  { content: "Text Item 9" },
-  { content: <p>Paragraph Item 10</p> },
-  { content: "Text Item 11" },
-  { content: <p>Paragraph Item 12</p> },
-  { content: "Text Item 13" },
-  { content: <p>Paragraph Item 14</p> },
+  { content: "🐾 Welcome, Future Pet Parent! Ready to adopt your furry bestie? 🎉" },
+  { content: "🐶 Step 1: Pick your perfect pet! Big, small, fluffy, or goofy? 🧐" },
+  { content: "🥎 Step 2: Play time! Bond through fetch, puzzles, and belly rubs. 🎾" },
+  { content: "🍖 Step 3: Feed wisely! Every pet has its fave treats. Choose right! 😋" },
+  { content: "🏡 Step 4: Customize their home! Cozy bed, cool toys, happy pet! 🏠" },
+  { content: "🩺 Step 5: Vet check! Keep your buddy healthy & unlock wellness rewards! 🏆" },
+  { content: "🎯 Daily Challenge: Walk, train, and care to earn 'Furvana Points'! 🔥" },
+  { content: "🎀 Style Your Pet: Dress ‘em up in cute accessories! 🎩✨" },
+  { content: "🏅 Unlock Achievements: Super Trainer, Snuggle Master & more! 🚀" },
+  { content: "📸 Pet Pics: Snap & share your pet’s best moments with the community! 🌍" },
+  { content: "🎉 Surprise Events: Exclusive pets, rare items & leaderboard prizes await! 🎊" },
+  { content: "🐾 Start your pet journey now & become the ultimate pet guardian! 🚀" },
 ];
-  
 
 
 const Section3 = () => {

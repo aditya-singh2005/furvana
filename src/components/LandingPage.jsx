@@ -3,7 +3,10 @@ import Navbar from './Navbar'
 import SplineScene from './SplineScene'
 import Section1 from './Section1'
 import Section2 from './Section2'
+
 import Section3 from './Section3'
+import Footer from "./Footer";
+
 
 const LandingPage = () => {
 
@@ -46,6 +49,9 @@ const items = [
       <Section1 />
       <Section2 />
       <Section3 />
+    
+      <Footer />
+    
       </div>
 
     </div>
