@@ -1,5 +1,5 @@
 import React from 'react';
-import GridMotion from './GridMotion';
+import GridMotion from './React Components/GridMotion';
 
 const petImages = [
   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt89nu5HcX65UCAUlQG6ZRP6UDiqelNSnTJg&s',
@@ -43,7 +43,7 @@ const Section1 = () => {
       {/* Content Section */}
       
       <div className="relative z-10 flex flex-col items-center text-white">
-        <h1 className="text-6xl font-extrabold mb-6 drop-shadow-lg">
+        <h1 className="text-6xl font-extrabold mb-6 drop-shadow-xl ">
           🐾 Find Your Furry Best Friend! 🏡
         </h1>
         <p className="text-xl max-w-3xl drop-shadow-md opacity-95">
@@ -62,3 +62,7 @@ const Section1 = () => {
 };
 
 export default Section1;
+
+
+
+

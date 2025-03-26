@@ -1,13 +1,13 @@
 import 'react'
 import Navbar from './Navbar'
-import SplineScene from './SplineScene'
+import SplineScene from './React Components/SplineScene'
 import Section1 from './Section1'
 import Section2 from './Section2'
 import Section3 from './Section3'
 import Footer from "./Footer";
 
 
-const LandingPage = () => {
+const Home = () => {
   return (
     <div>
       <Navbar />
@@ -25,4 +25,4 @@ const LandingPage = () => {
   )
 }
 
-export default LandingPage
+export default Home

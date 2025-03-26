@@ -1,87 +1,101 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { FaEnvelope, FaLock } from 'react-icons/fa';
 
 const LoginSignup = () => {
-  const [isSignUp, setIsSignUp] = useState(false);
-  const [formData, setFormData] = useState({ email: "", password: "", name: "" });
+  // State to manage email and password inputs
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
+  // Form submission handler
   const handleSubmit = (e) => {
+    // Prevent the default form submission behavior
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
+    
+    // Log email and password to the console
+    console.log('Email:', email);
+    console.log('Password:', password);
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-orange-400 via-yellow-300 to-orange-500 relative overflow-hidden">
-      {/* Cute Paw Print Background Overlay */}
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/footprints.png')] opacity-20"></div>
-
-      {/* Card Container */}
-      <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-2xl relative z-10">
-        <h2 className="text-3xl font-bold text-center text-gray-800">
-          {isSignUp ? "Join the Furvana Family! 🐾" : "Welcome Back, Pet Lover! 🐶"}
-        </h2>
-
-        <form onSubmit={handleSubmit} className="mt-6">
-          {isSignUp && (
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Full Name</label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
-                required
-              />
+    <div className='bg-[#716346] h-screen w-screen flex justify-center items-center'>
+      <div className='h-3/4 w-1/2 bg-transparent rounded-3xl flex'>
+        <div className='bg-amber-300 h-full w-2/5 rounded-[50%]'>
+          <img src="/icons/login-cat.png" className='h-full w-full object-cover rounded-l-[10vh]' alt="Login image" />
+        </div>
+        <div className='border-2 bg-[rgba(244,208,136,255)] h-full w-3/5 rounded-r-[2vh]'>
+          {/* Wrap the entire content in a form */}
+          <form onSubmit={handleSubmit} className='h-full w-full p-10'>
+            {/* Header */}
+            <div className='h-[20%] w-full flex items-center mb-5'>
+              <img src="/icons/furvana-logo.png" className="w-25 h-25 rounded-[50%] ml-20" alt="furvana-logo.png" />
+              <h1 className='ml-8 text-3xl font-bold'>Login</h1>
             </div>
-          )}
 
-          <div className="mt-4">
-            <label className="block text-sm font-medium text-gray-700">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
-              required
-            />
-          </div>
+            {/* Email Input */}
+            <div className='h-[20%] w-full'>
+              <label className='text-lg font-semibold mb-1'>Email</label>
+              <div className='flex items-center bg-white p-2 rounded-xl'>
+                <FaEnvelope className="text-black ml-2" />
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="w-full p-1 ml-2 text-md"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
 
-          <div className="mt-4">
-            <label className="block text-sm font-medium text-gray-700">Password</label>
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
-              required
-            />
-          </div>
+            {/* Password Input */}
+            <div className='h-[20%] w-full '>
+              <label className='text-lg font-semibold mb-1'>Password</label>
+              <div className='flex items-center bg-white p-2 rounded-xl'>
+                <FaLock className="text-black ml-2" />
+                <input
+                  type="password"
+                  placeholder="Enter your password"
+                  className="w-full p-1 ml-2 text-md"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="flex justify-end mt-2">
+                <a href="#" className="text-sm text-blue-700 font-semibold underline">Forgot Password?</a>
+              </div>
+            </div>
 
-          {/* Submit Button */}
-          <button
-            type="submit"
-            className="w-full mt-6 px-4 py-2 text-white bg-gradient-to-r from-orange-500 to-yellow-400 rounded-lg hover:scale-105 transition duration-300 shadow-lg"
-          >
-            {isSignUp ? "Sign Up & Find a Pet! 🐕" : "Login to Adopt 🐾"}
-          </button>
-        </form>
+            {/* Login Button */}
+            <div className='h-[10%] w-full mt-4'>
+              <button 
+                type="submit" 
+                className='w-full bg-amber-500 rounded-[20vh] font-bold text-xl flex justify-center items-center p-2'
+              >
+                Login
+              </button>
+            </div>
 
-        {/* Toggle Login/Signup */}
-        <p className="mt-6 text-sm text-center text-gray-600">
-          {isSignUp ? "Already part of Furvana?" : "New to Furvana?"}
-          <button
-            onClick={() => setIsSignUp(!isSignUp)}
-            className="text-orange-500 font-semibold hover:underline ml-1"
-          >
-            {isSignUp ? "Login" : "Sign Up"}
-          </button>
-        </p>
+            {/* OR Section with Solid Lines */}
+            <div className='w-full h-[20%] '>
+              <div className='w-full h-[20%] mt-4 flex items-center'>
+                <hr className="flex-grow border-t border-gray-800" />
+                <h2 className="mx-4 font-semibold">Or Continue With</h2>
+                <hr className="flex-grow border-t border-gray-800" />
+              </div>
+              <div className='flex justify-center space-x-6 mt-4'>
+                <img src="/icons/google-logo.png" className='w-8 h-8' alt="google-logo.png"></img>
+                <img src="/icons/facebook-logo.png" className='w-8 h-8' alt="facebook-logo.png"></img>
+                <img src="/icons/apple-logo.png" className='w-8 h-8' alt="apple-logo.png"></img>
+              </div>
+
+              <div className='w-full p-2 flex justify-center items-center mt-4 '>
+                <h1 className='font-bold text-sm '>Dont have an account?</h1> 
+                <a className='text-blue-700 font-semibold text-sm underline ml-1 cursor-pointer'> Sign Up here!</a>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

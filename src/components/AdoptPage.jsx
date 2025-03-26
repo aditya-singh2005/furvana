@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar';
-import Masonry from './Masonry';
+import Masonry from './React Components/Masonry';
 import SearchFilterForm from './SearchFilterForm';
 
 const AdoptPage = () => {

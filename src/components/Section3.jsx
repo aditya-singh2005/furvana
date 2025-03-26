@@ -1,5 +1,5 @@
 import React from 'react'
-import InfiniteScroll from './InfiniteScroll';
+import InfiniteScroll from './React Components/InfiniteScroll';
 
 
 const items = [

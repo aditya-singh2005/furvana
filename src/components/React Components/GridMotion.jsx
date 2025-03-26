@@ -54,7 +54,7 @@ const GridMotion = ({ items = [], gradientColor = 'black' }) => {
         }}
       >
         <div
-          className="gap-4 flex-none relative w-[150vw] h-[150vh] grid grid-rows-4 grid-cols-1 rotate-[-15deg] origin-center z-[2]"
+          className="gap-4 flex-none relative w-[150vw] h-[150vh] grid grid-rows-4 grid-cols-1 rotate-[-15deg] origin-center z-0"
         >
           {[...Array(4)].map((_, rowIndex) => (
             <div
