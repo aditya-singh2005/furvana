@@ -15,20 +15,19 @@ const LoginSignup = () => {
     console.log('Email:', email);
     console.log('Password:', password);
   };
-
+  // [#716346]
   return (
-    <div className='bg-[#716346] h-screen w-screen flex justify-center items-center'>
+    <div className='bg-[#453c29] h-screen w-screen flex justify-center items-center bg-gradient-to-b from-black/80'>
       <div className='h-3/4 w-1/2 bg-transparent rounded-3xl flex'>
         <div className='bg-amber-300 h-full w-2/5 rounded-[50%]'>
-          <img src="/icons/login-cat.png" className='h-full w-full object-cover rounded-l-[10vh]' alt="Login image" />
+          <img src="/icons/login-cat.png" className='h-full w-full object-cover rounded-l-[h]' alt="Login image" />
         </div>
         <div className='border-2 bg-[rgba(244,208,136,255)] h-full w-3/5 rounded-r-[2vh]'>
           {/* Wrap the entire content in a form */}
           <form onSubmit={handleSubmit} className='h-full w-full p-10'>
             {/* Header */}
-            <div className='h-[20%] w-full flex items-center mb-5'>
-              <img src="/icons/furvana-logo.png" className="w-25 h-25 rounded-[50%] ml-20" alt="furvana-logo.png" />
-              <h1 className='ml-8 text-3xl font-bold'>Login</h1>
+            <div className='h-[20%] w-full flex items-center justify-center mb-5'>
+              <img src="/icons/furvana-logo.png" className="w-25 h-25 rounded-[50%]" alt="furvana-logo.png" />
             </div>
 
             {/* Email Input */}
